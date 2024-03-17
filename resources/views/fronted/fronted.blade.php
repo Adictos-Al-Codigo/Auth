@@ -24,10 +24,10 @@
                 <a class="nav-link" href="{{route('Dashboard')}}">Ver Perfil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('Dashboard')}}">Protegida</a>
+                <a class="nav-link" href="{{route('Protegido')}}">Protegida</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('Dashboard')}}">Protegida 2</a>
+                <a class="nav-link" href="{{route('Protegido2')}}">Protegida 2</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('Dashboard')}}">Dashboard</a>
@@ -35,6 +35,9 @@
               @else
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('Login')}}">Ingresar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('Registrar')}}">Registrarse</a>
               </li>
               @endif
             </ul>
@@ -44,8 +47,10 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
                 <a style="margin-left: 30px" class="navbar-brand" href="#">Hola, {{Auth::user()->name}}</a>   
             </form>
+            <a href="{{route('Logout')}}"><button class="btn btn-primary">Cerrar Sesión</button></a> 
             @endif
           </div>
+          
         </div>
       </nav>
       <section>

@@ -84,4 +84,9 @@ class AccesoController extends Controller
 
         return redirect()->route('Login');
     }
+
+    public function cerrar_sesion(){
+        Auth::logout();
+        return redirect()->route('Home');
+    }
 }
