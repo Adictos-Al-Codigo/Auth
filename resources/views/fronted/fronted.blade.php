@@ -23,12 +23,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{route('Dashboard')}}">Ver Perfil</a>
               </li>
+              @if (@session('perfil_id') == 1)
               <li class="nav-item">
                 <a class="nav-link" href="{{route('Protegido')}}">Protegida</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('Protegido2')}}">Protegida 2</a>
               </li>
+              @endif
+
               <li class="nav-item">
                 <a class="nav-link" href="{{route('Dashboard')}}">Dashboard</a>
               </li>

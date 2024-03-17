@@ -54,11 +54,6 @@
                       </div>
         
                     </div>
-                    @if ($login)
-                    <div class="alert alert-danger" role="alert">
-                      Las Credenciales son Incorrectas...
-                    </div>
-                    @endif
 
                   </form>
     

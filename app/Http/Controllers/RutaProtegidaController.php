@@ -6,11 +6,20 @@ use Illuminate\Http\Request;
 
 class RutaProtegidaController extends Controller
 {
+
     public function Protegido(){
-        return view('guards.protegido1');
+        if (session('perfil_id')!=1) {
+            return view('guards.error404');
+        }else{
+            return view('guards.protegido1');
+        }
     }
 
     public function Protegido2(){
-        return view('guards.protegido2');
+        if (session('perfil_id')!=1) {
+            return view('guards.error404');
+        }else{
+            return view('guards.protegido2');
+        }
     }
 }

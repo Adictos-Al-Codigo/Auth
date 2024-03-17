@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Felicidades esta vista es solo para Administradores.</h1>
+    <h1>No tienes los permisos de roles para esta función</h1>
 </body>
 </html>

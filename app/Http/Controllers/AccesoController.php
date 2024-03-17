@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class AccesoController extends Controller
 {
     public function acceso_login(){
-        $login = false;
-        return view('acceso.login', compact('login'));
+        return view('acceso.login');
     }
 
     public function acceso_registro(){
@@ -38,7 +37,7 @@ class AccesoController extends Controller
             session(['users_metadata_id' => $usuario->id]);
             session(['perfil_id' => $usuario->perfil_id]);
             session(['perfil' => $usuario->perfil->nombre]);
-            return redirect()->intended('/Dashboard');
+            return redirect()->intended('/Home');
         } else {
             return redirect()->route('Login', compact('login'));
         }
@@ -70,23 +69,23 @@ class AccesoController extends Controller
             'created_at' => date('Y-m-d H:i:s')
         ]);
 
-        $perfil = perfil::create([
-            'nombre' => $user->name
-        ]);
 
         users_metadata::create([
             'users_id' => $user->id,
             'telefono' => $resq->tel,
             'direccion' => $resq->dir,
-            'perfil_id' => $perfil->id
+            'perfil_id' => 2
         ]);
 
 
         return redirect()->route('Login');
     }
 
-    public function cerrar_sesion(){
+    public function cerrar_sesion(Request $request){
         Auth::logout();
-        return redirect()->route('Home');
+        $request->session()->forget('users_metadata_id');
+        $request->session()->forget('perfil_id');
+        $request->session()->forget('perfil');
+        return redirect()->route('login');
     }
 }
